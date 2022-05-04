@@ -7,6 +7,7 @@ import { Text, View } from '../components/Themed';
 import Colors from '../constants/Colors';
 import HomeScreen from '../screens/HomeScreen';
 import { Pressable } from 'react-native';
+import SearchScreen from '../screens/SearchScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -36,7 +37,7 @@ export default function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Search"
-        component={TabTwoScreen}
+        component={SearchScreen}
         options={{
           title: 'search',
           tabBarIcon: ({ color }) => <TabBarIcon name="search1" color={color} />,
