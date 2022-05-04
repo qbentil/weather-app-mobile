@@ -11,11 +11,11 @@ export default function HomeScreenHeader() {
   return (
     <View style = {tw`flex flex-row mx-2 mt-2 justify-between`}>
         <View style = {tw``}>
-            <Text style = {tw`ml-2 text-sm text-gray-${colorScheme == 'light'?'600':'400'}`}>22 Feb, 2022</Text>
+            <Text style = {tw`ml-2 text-lg text-gray-${colorScheme == 'light'?'600':'400'}`}>22 Feb, 2022</Text>
             <View style = {tw`flex flex-row items-center`}>
-                <Entypo name="location-pin" size={26} style = {tw`m-0`} color={Colors[colorScheme].text} />
-                <Text style = {tw`font-bold uppercase text-lg`}>Accra, </Text>
-                <Text style = {tw`text-lg text-gray-${colorScheme == 'light'?'600':'400'}`}>Ghana</Text>
+                <Entypo name="location-pin" size={28  } style = {tw`m-0`} color={Colors[colorScheme].text} />
+                <Text style = {tw`font-bold uppercase text-xl`}>Accra, </Text>
+                <Text style = {tw`text-xl text-gray-${colorScheme == 'light'?'600':'400'}`}>Ghana</Text>
             </View>
         </View>
         <View style = {tw``}>
