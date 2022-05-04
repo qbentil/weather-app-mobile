@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { FontAwesome, Fontisto, Ionicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
+import { AntDesign, FontAwesome, Fontisto, Ionicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 
 import Colors from '../constants/Colors';
@@ -21,6 +21,7 @@ export default function BottomTabNavigator() {
       initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarShowLabel: false
       }}>
       <BottomTab.Screen
         name="Home"
@@ -49,7 +50,15 @@ export default function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: 'search',
-          tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="search1" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Other"
+        component={TabTwoScreen}
+        options={{
+          title: 'Other',
+          tabBarIcon: ({ color }) => <Ionicons size={30} style={{ marginBottom: -3 }} name="md-navigate-circle-outline" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -59,6 +68,7 @@ export default function BottomTabNavigator() {
           title: 'profile',
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
+        
       />
     </BottomTab.Navigator>
   );
@@ -68,10 +78,10 @@ export default function BottomTabNavigator() {
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: React.ComponentProps<typeof AntDesign>['name'];
   color: string;
 }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <AntDesign size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
