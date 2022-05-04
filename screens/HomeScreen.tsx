@@ -1,21 +1,31 @@
+import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
 
-import EditScreenInfo from '../components/EditScreenInfo';
+import HomeScreenHeader from '../headers/HomeScreenHeader';
 import { RootTabScreenProps } from '../types';
-import { StyleSheet } from 'react-native';
+import tw from 'twrnc'
 
+const image = {uri: "https://www.globe.gov/o/globe-gov-measurements-portlet/img/map-background.png"}
 export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
   return (
-    <View style={styles.container}>
-      
-    </View>
+    <SafeAreaView style={tw``}>
+        <HomeScreenHeader />
+        <ImageBackground style={[tw`h-full`,styles.image]} source={image}>
+        
+        </ImageBackground>
+
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image:{
+    // flex: 1,
+    // resizeMode: 'cover',
     justifyContent: 'center',
   },
   title: {
