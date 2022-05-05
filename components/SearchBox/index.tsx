@@ -27,7 +27,7 @@ const SearchBar: React.FC<Props> =({style, }) =>{
                 defaultValue={val}
                 onChangeText={(text) => setVal(text)}
                 underlineColorAndroid="transparent"
-                placeholderTextColor={Colors[colorScheme].text}
+                placeholderTextColor={Colors['light'].tabIconDefault}
                 returnKeyType = {'search'}
             />
             {/* <Ionicons name='search' size={22} } /> */}
