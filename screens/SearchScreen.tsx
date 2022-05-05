@@ -43,7 +43,9 @@ export default function SearchScreen({ navigation }: RootTabScreenProps<'Search'
                   <MaterialCommunityIcons name="shield-star-outline" size={22} color={Colors[colorScheme].tint} />
               </View>
         </View>
-        
+        <View style = {tw`w-[60%] mx-auto items-center absolute top-120 z-50 left-20`}>
+          <Icon style={tw`w-22 h-22`} />
+        </View>
         <View style = {tw`w-[95%] h-60 mt-4 mx-auto flex flex-row items-center justify-around rounded-xl shadow-xl ${colorScheme == 'light'? "bg-gray-100 border border-gray-100":"border bg-gray-800 opacity-90 border-transparent"}`}>
             <View style = {tw`w-[49%] flex items-center justify-between`}>
                 <View style = {tw`items-center mb-10 `}>
