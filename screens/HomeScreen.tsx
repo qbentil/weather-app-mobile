@@ -1,8 +1,9 @@
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
-import { ImageBackground, SafeAreaView, StyleSheet, View } from 'react-native';
+import { Image, ImageBackground, SafeAreaView, StyleSheet, View } from 'react-native';
 
 import Colors from '../constants/Colors';
 import HomeScreenHeader from '../headers/HomeScreenHeader';
+import Icon from '../components/Icon';
 import { RootTabScreenProps } from '../types';
 import { Text } from '../components/Themed';
 import tw from 'twrnc'
@@ -14,12 +15,9 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
   return (
     <SafeAreaView style={tw``}>
         <HomeScreenHeader />
-        {/* <Image style={tw`h-full`} source = {image} resizeMode = 'cover'>
-        
-        </Image> */}
         <ImageBackground style={tw`h-72 mt-12 opacity-${colorScheme == 'light'?'10':'30'}`} source={image} resizeMode = 'cover'></ImageBackground>
         <View style = {tw`absolute items-center top-42 left-26 bg-transparent`}>
-          <FontAwesome5 name="cloud-sun-rain" style = {tw`my-4`} size={140} color={colorScheme == 'light'?Colors.light.tabIconDefault:Colors.dark.text} />
+          <Icon style = {tw`w-60 h-60 mt--5`} />
           <Text style = {tw`font-bold text-xl mt-2 text-gray-${colorScheme == 'light'?'600':'200'}`}>Thunder</Text>
           <Text style = {tw`font-bold mt-4 text-[7.5rem] text-[${Colors[colorScheme].text}]`}>13</Text>
           <Text style={tw`absolute top-62 left-37 font-bold text-2xl text-[${Colors.light.tint}]`}>O</Text>
