@@ -2,16 +2,71 @@ import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { Image, ImageBackground, SafeAreaView, StyleSheet, View } from 'react-native';
 
 import Colors from '../constants/Colors';
+import Geolocation from 'react-native-geolocation-service';
 import HomeScreenHeader from '../headers/HomeScreenHeader';
 import Icon from '../components/Icon';
 import { RootTabScreenProps } from '../types';
 import { Text } from '../components/Themed';
 import tw from 'twrnc'
 import useColorScheme from '../hooks/useColorScheme';
+import { useState } from 'react';
+
+// navigator.geolocation = require('@react-native-community/geolocation')
+
+
+
+
+
+
+
 
 const image = {uri: "https://www.globe.gov/o/globe-gov-measurements-portlet/img/map-background.png"}
 export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
+  const [currentLongitude, setCurrentLongitude] = useState('')
+  const [currentLatitude, setCurrentLatitude] = useState('')
   const colorScheme = useColorScheme();
+  
+  // Geolocation.getCurrentPosition(
+  //   //Will give you the current location
+  //   (position) => {
+  //     //getting the Longitude from the location json
+  //     console.log(JSON.stringify(position.coords.longitude));
+  //     setCurrentLongitude(JSON.stringify(position.coords.longitude));
+      
+   
+  //     //getting the Latitude from the location json
+  //     console.log(JSON.stringify(position.coords.latitude));
+  //     setCurrentLatitude(JSON.stringify(position.coords.latitude))
+      
+        
+  //    }, (error) => alert(error.message), { 
+  //      enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 
+  //    }
+  // );
+  
+ Geolocation.getCurrentPosition(
+    position => {
+      const initialPosition = JSON.stringify(position);
+      let region = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+          }
+      // setState({initialPosition:region});
+      console.log("lat "+position.coords.latitude+" longi "+position.coords.longitude)
+      console.log("initialPosition")
+      // console.log(this.state.initialPosition)
+    },
+     error => console.log("Error "+ JSON.stringify(error)),
+    {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
+  );
+  // this.watchID = Geolocation.watchPosition(position => {
+  //   const lastPosition = JSON.stringify(position);
+  //   this.setState({lastPosition});
+  // });
+  
+  
   return (
     <SafeAreaView style={tw``}>
         <HomeScreenHeader />

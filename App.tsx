@@ -1,9 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
+import Navigation from './navigation';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
+import { StatusBar } from 'expo-status-bar';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
+// navigator.geolocation = require('@react-native-community/geolocation')
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
