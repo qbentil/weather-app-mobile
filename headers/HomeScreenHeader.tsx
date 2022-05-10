@@ -4,10 +4,16 @@ import { useEffect, useState } from 'react';
 
 import Colors from '../constants/Colors';
 import { Text } from '../components/Themed';
+import moment from 'moment';
 import tw from 'twrnc'
 import useColorScheme from '../hooks/useColorScheme';
 
-export default function HomeScreenHeader() {
+interface Props{
+  city:string,
+  country: string,
+  timezone: any
+}
+const HomeScreenHeader:React.FC<Props> = ({city, country, timezone}) =>{
     const colorScheme = useColorScheme();
     // const [isEnabled, setIsEnabled] = useState(false);
         
@@ -22,14 +28,26 @@ export default function HomeScreenHeader() {
     //        setIsEnabled(false); // false means light
     //     }
     // },[])
+    const getTime :React.FC<number> = (timezone) => {
+      // return offset;
+      let d = new Date();
+  
+      let utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+  
+      let nd = new Date(utc + (timezone*3600));
+  
+      // return  nd.toLocaleString();
+      return  moment(nd.toLocaleString()).format('LLLL');     
+  
+    }
   return (
     <View style = {tw`flex flex-row mx-2 mt-2 justify-between`}>
         <View style = {tw``}>
-            <Text style = {tw`ml-2 text-lg text-gray-${colorScheme == 'light'?'600':'400'}`}>22 Feb, 2022</Text>
+            <Text style = {tw`ml-2 text-lg text-gray-${colorScheme == 'light'?'600':'400'}`}>{getTime(parseInt(timezone))}</Text>
             <View style = {tw`flex flex-row items-center`}>
                 <Entypo name="location-pin" size={28  } style = {tw`m-0`} color={Colors[colorScheme].text} />
-                <Text style = {tw`font-bold uppercase text-xl`}>Accra, </Text>
-                <Text style = {tw`text-xl text-gray-${colorScheme == 'light'?'600':'400'}`}>Ghana</Text>
+                <Text style = {tw`font-bold uppercase text-xl`}>{city}, </Text>
+                <Text style = {tw`text-xl text-gray-${colorScheme == 'light'?'600':'400'}`}>{country}</Text>
             </View>
         </View>
         <View  style = {tw``}>
@@ -46,18 +64,5 @@ export default function HomeScreenHeader() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+
+export default HomeScreenHeader

@@ -17,4 +17,10 @@ A Complete Weather APP using React Native & Expo.
 </div>
 
 
+## Technologies
+1.  React Native and Expo
+2.  TypeScript
+3.  Open Weather Map from Rapid API 
+4.  Google Locations API
+
 
