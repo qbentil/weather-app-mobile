@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 
 import Colors from '../constants/Colors';
 import { Text } from '../components/Themed';
+import moment from 'moment';
 import tw from 'twrnc'
 import useColorScheme from '../hooks/useColorScheme';
 
-export default function HomeScreenHeader() {
+const HomeScreenHeader = () =>{
     const colorScheme = useColorScheme();
     // const [isEnabled, setIsEnabled] = useState(false);
         
@@ -22,14 +23,15 @@ export default function HomeScreenHeader() {
     //        setIsEnabled(false); // false means light
     //     }
     // },[])
+
   return (
     <View style = {tw`flex flex-row mx-2 mt-2 justify-between`}>
         <View style = {tw``}>
-            <Text style = {tw`ml-2 text-lg text-gray-${colorScheme == 'light'?'600':'400'}`}>22 Feb, 2022</Text>
+            <Text style = {tw`ml-2 text-lg text-gray-${colorScheme == 'light'?'600':'400'}`}>{'Feb 22, 2022'}</Text>
             <View style = {tw`flex flex-row items-center`}>
                 <Entypo name="location-pin" size={28  } style = {tw`m-0`} color={Colors[colorScheme].text} />
-                <Text style = {tw`font-bold uppercase text-xl`}>Accra, </Text>
-                <Text style = {tw`text-xl text-gray-${colorScheme == 'light'?'600':'400'}`}>Ghana</Text>
+                <Text style = {tw`font-bold uppercase text-xl`}>{'Accra'}, </Text>
+                <Text style = {tw`text-xl text-gray-${colorScheme == 'light'?'600':'400'}`}>{'GH'}</Text>
             </View>
         </View>
         <View  style = {tw``}>
@@ -46,18 +48,5 @@ export default function HomeScreenHeader() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+
+export default HomeScreenHeader
