@@ -20,7 +20,7 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
           <Icon style = {tw`w-60 h-60 mt--5`} />
           <Text style = {tw`font-bold text-xl mt-2 text-gray-${colorScheme == 'light'?'600':'200'}`}>Thunder</Text>
           <Text style = {tw`font-bold mt-4 text-[7.5rem] text-[${Colors[colorScheme].text}]`}>13</Text>
-          <Text style={tw`absolute top-62 left-37 font-bold text-2xl text-[${Colors.light.tint}]`}>O</Text>
+          <Text style={tw`absolute top-74 left-45 font-bold text-2xl text-[${Colors.light.tint}]`}>O</Text>
         </View>
 
         <View style = {tw`flex flex-row justify-around mt-40 h-full`}>
